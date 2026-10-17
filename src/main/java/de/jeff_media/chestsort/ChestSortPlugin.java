@@ -56,6 +56,7 @@ import com.jeff_media.jefflib.data.McVersion;
 import com.jeff_media.jefflib.NBTAPI;
 import io.papermc.lib.PaperLib;
 import org.bstats.bukkit.Metrics;
+import org.bstats.charts.SimplePie;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -613,51 +614,51 @@ public class ChestSortPlugin extends JavaPlugin {
         // Metrics will need json-simple with 1.14 API.
         Metrics bStats = new Metrics(this, 3089);
 
-        bStats.addCustomChart(new Metrics.SimplePie("sorting_method", this::getSortingMethod));
-        bStats.addCustomChart(new Metrics.SimplePie("config_version",
+        bStats.addCustomChart(new SimplePie("sorting_method", this::getSortingMethod));
+        bStats.addCustomChart(new SimplePie("config_version",
                 () -> Integer.toString(getConfig().getInt("config-version", 0))));
         bStats.addCustomChart(
-                new Metrics.SimplePie("check_for_updates", () -> getConfig().getString("check-for-updates", "true")));
+                new SimplePie("check_for_updates", () -> getConfig().getString("check-for-updates", "true")));
         bStats.addCustomChart(
-                new Metrics.SimplePie("update_interval", () -> Double.toString(getUpdateCheckInterval())));
+                new SimplePie("update_interval", () -> Double.toString(getUpdateCheckInterval())));
 
-        bStats.addCustomChart(new Metrics.SimplePie("allow_automatic_sorting",
+        bStats.addCustomChart(new SimplePie("allow_automatic_sorting",
                 () -> Boolean.toString(getConfig().getBoolean("allow-automatic-sorting"))));
-        bStats.addCustomChart(new Metrics.SimplePie("allow_automatic_inv_sorting",
+        bStats.addCustomChart(new SimplePie("allow_automatic_inv_sorting",
                 () -> Boolean.toString(getConfig().getBoolean("allow-automatic-inventory-sorting"))));
 
-        bStats.addCustomChart(new Metrics.SimplePie("show_message_when_using_chest",
+        bStats.addCustomChart(new SimplePie("show_message_when_using_chest",
                 () -> Boolean.toString(getConfig().getBoolean("show-message-when-using-chest"))));
-        bStats.addCustomChart(new Metrics.SimplePie("show_message_when_using_chest_and_sorting_is_enabl", () -> Boolean
+        bStats.addCustomChart(new SimplePie("show_message_when_using_chest_and_sorting_is_enabl", () -> Boolean
                 .toString(getConfig().getBoolean("show-message-when-using-chest-and-sorting-is-enabled"))));
-        bStats.addCustomChart(new Metrics.SimplePie("show_message_again_after_logout",
+        bStats.addCustomChart(new SimplePie("show_message_again_after_logout",
                 () -> Boolean.toString(getConfig().getBoolean("show-message-again-after-logout"))));
-        bStats.addCustomChart(new Metrics.SimplePie("sorting_enabled_by_default",
+        bStats.addCustomChart(new SimplePie("sorting_enabled_by_default",
                 () -> Boolean.toString(getConfig().getBoolean("sorting-enabled-by-default"))));
-        bStats.addCustomChart(new Metrics.SimplePie("inv_sorting_enabled_by_default",
+        bStats.addCustomChart(new SimplePie("inv_sorting_enabled_by_default",
                 () -> Boolean.toString(getConfig().getBoolean("inv-sorting-enabled-by-default"))));
         bStats.addCustomChart(
-                new Metrics.SimplePie("using_matching_config_version", () -> Boolean.toString(isUsingMatchingConfig())));
-        bStats.addCustomChart(new Metrics.SimplePie("sort_time", () -> getConfig().getString("sort-time")));
-        bStats.addCustomChart(new Metrics.SimplePie("auto_generate_category_files",
+                new SimplePie("using_matching_config_version", () -> Boolean.toString(isUsingMatchingConfig())));
+        bStats.addCustomChart(new SimplePie("sort_time", () -> getConfig().getString("sort-time")));
+        bStats.addCustomChart(new SimplePie("auto_generate_category_files",
                 () -> Boolean.toString(getConfig().getBoolean("auto-generate-category-files"))));
-        bStats.addCustomChart(new Metrics.SimplePie("allow_hotkeys",
+        bStats.addCustomChart(new SimplePie("allow_hotkeys",
                 () -> Boolean.toString(getConfig().getBoolean("allow-sorting-hotkeys"))));
-        bStats.addCustomChart(new Metrics.SimplePie("allow_additional_hotkeys",
+        bStats.addCustomChart(new SimplePie("allow_additional_hotkeys",
                 () -> Boolean.toString(getConfig().getBoolean("allow-additional-hotkeys"))));
-        bStats.addCustomChart(new Metrics.SimplePie("hotkey_middle_click",
+        bStats.addCustomChart(new SimplePie("hotkey_middle_click",
                 () -> Boolean.toString(getConfig().getBoolean("sorting-hotkeys.middle-click"))));
-        bStats.addCustomChart(new Metrics.SimplePie("hotkey_shift_click",
+        bStats.addCustomChart(new SimplePie("hotkey_shift_click",
                 () -> Boolean.toString(getConfig().getBoolean("sorting-hotkeys.shift-click"))));
-        bStats.addCustomChart(new Metrics.SimplePie("hotkey_double_click",
+        bStats.addCustomChart(new SimplePie("hotkey_double_click",
                 () -> Boolean.toString(getConfig().getBoolean("sorting-hotkeys.double-click"))));
-        bStats.addCustomChart(new Metrics.SimplePie("hotkey_shift_right_click",
+        bStats.addCustomChart(new SimplePie("hotkey_shift_right_click",
                 () -> Boolean.toString(getConfig().getBoolean("sorting-hotkeys.shift-right-click"))));
-        bStats.addCustomChart(new Metrics.SimplePie("hotkey_left_click",
+        bStats.addCustomChart(new SimplePie("hotkey_left_click",
                 () -> Boolean.toString(getConfig().getBoolean("additional-hotkeys.left-click"))));
-        bStats.addCustomChart(new Metrics.SimplePie("hotkey_right_click",
+        bStats.addCustomChart(new SimplePie("hotkey_right_click",
                 () -> Boolean.toString(getConfig().getBoolean("additional-hotkeys.right-click"))));
-        bStats.addCustomChart(new Metrics.SimplePie("use_permissions",
+        bStats.addCustomChart(new SimplePie("use_permissions",
                 () -> Boolean.toString(getConfig().getBoolean("use-permissions"))));
 
     }
